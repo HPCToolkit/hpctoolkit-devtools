@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-#  Copyright (c) 2015, Rice University.
+#  Copyright (c) 2013-2016, Rice University.
 #  See the file LICENSE for details.
 #
 #  This script builds and installs the autotools packages (autoconf,
