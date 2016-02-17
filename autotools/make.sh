@@ -86,6 +86,7 @@ build_pkg()
     pkg_name="$1"
     tarfile="$2"
     srcdir="$3"
+    config_dir="$4"
 
     echo ; echo "===> ($pkg_name)"
 
@@ -111,6 +112,20 @@ build_pkg()
 	    ;;
     esac
 
+    cd "$srcdir" || die "unable to cd: $srcdir"
+
+    if test -d "$config_dir" ; then
+	echo "installing new config.guess, config.sub"
+	cd "$config_dir" || die "unable to cd: $config_dir"
+
+	for f in config.guess config.sub ; do
+	    rm -f "$f.orig"
+	    mv -f "$f" "$f.orig"
+	    cp -f "$topdir/$distdir/$f" "$f" || die "unable to copy: $f"
+	done
+    fi
+
+    cd "$topdir" || die "unable to cd: $topdir"
     cd "$srcdir" || die "unable to cd: $srcdir"
 
     echo "configure --prefix=$prefix"
@@ -182,11 +197,11 @@ fi
 PATH="${prefix}/bin/:$PATH"
 
 if test "$opt_install_m4" = yes ; then
-    build_pkg m4 "$m4_tarfile" "$m4_srcdir"
+    build_pkg m4 "$m4_tarfile" "$m4_srcdir" build-aux
 fi
-build_pkg autoconf "$autoconf_tarfile" "$autoconf_srcdir"
-build_pkg automake "$automake_tarfile" "$automake_srcdir"
-build_pkg libtool  "$libtool_tarfile"  "$libtool_srcdir"
+build_pkg autoconf "$autoconf_tarfile" "$autoconf_srcdir" build-aux
+build_pkg automake "$automake_tarfile" "$automake_srcdir" no
+build_pkg libtool  "$libtool_tarfile"  "$libtool_srcdir"  no
 
 echo ; echo "resetting permissions ..."
 find "$prefix" -type d -exec chmod a+rx {} \;

@@ -39,3 +39,6 @@ To build each package manually, use:
 Build in order: m4, autoconf, automake and libtool.  Add prefix/bin to
 PATH after each package.
 
+Note: config.guess from autoconf 2.69 is too old and does not
+understand powerpc/le.  Use the version from automake instead.
+
