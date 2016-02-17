@@ -1,0 +1,8 @@
+This, the newarch branch of hpctoolkit-devtools, contains newer
+versions of autotools.  These are the versions to use with the newarch
+branches of hpctoolkit and externals.
+
+At some point, all three branches will be merged back to their master
+branches.  But until then, use this branch for the newarch branches
+and the older autotools for everything else.
+

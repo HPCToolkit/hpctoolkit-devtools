@@ -17,11 +17,18 @@ across machines.
 To install autotools, run './make.sh' with the install directory as
 argument.  For example:
 
-  ./make.sh  /projects/pkgs/autotools-ac-2.67-am-1.11.1-lt-2.2.10
+  ./make.sh  /projects/pkgs/autotools
 
 Autotools depends on m4, version about 1.4.10 or 1.4.12 or later.  If
 your system version is older, or if make.sh fails, then rerun make.sh
 with '-m4'.
+
+Current versions:
+
+  autoconf  2.69
+  automake  1.15
+  libtool   2.4.6
+  m4        1.4.17
 
 To build each package manually, use:
 
