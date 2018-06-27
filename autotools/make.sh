@@ -18,7 +18,7 @@
 version='ac-2.69-am-1.15-lt-2.4.6'
 
 autoconf_srcdir=autoconf-2.69
-automake_srcdir=automake-1.15
+automake_srcdir=automake-1.15.1
 libtool_srcdir=libtool-2.4.6
 m4_srcdir=m4-1.4.17
 
