@@ -15,7 +15,7 @@
 #
 #  $Id$
 #
-version='ac-2.69-am-1.15-lt-2.4.6'
+version='ac-2.69-am-1.15.1-lt-2.4.6'
 
 autoconf_srcdir=autoconf-2.69
 automake_srcdir=automake-1.15.1
