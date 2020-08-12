@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-#  Copyright (c) 2013-2016, Rice University.
+#  Copyright (c) 2013-2020, Rice University.
 #  See the file LICENSE for details.
 #
 #  This script builds and installs the autotools packages (autoconf,
@@ -15,10 +15,10 @@
 #
 #  $Id$
 #
-version='ac-2.69-am-1.15.1-lt-2.4.6'
+version='ac-2.69-am-1.16.2-lt-2.4.6'
 
 autoconf_srcdir=autoconf-2.69
-automake_srcdir=automake-1.15.1
+automake_srcdir=automake-1.16.2
 libtool_srcdir=libtool-2.4.6
 m4_srcdir=m4-1.4.17
 
@@ -50,7 +50,7 @@ usage: $0 [option]... install-prefix
         delete the source directories
 
     -m4, -no-m4
-        install m4 (or not), default no
+        install m4 (or not), default yes
 
     -v, --version
         display versions of the packages
@@ -142,7 +142,7 @@ build_pkg()
 #  options
 #----------------------------------------
 
-opt_install_m4=no
+opt_install_m4=yes
 prefix=
 
 while test "x$1" != x
@@ -201,7 +201,7 @@ if test "$opt_install_m4" = yes ; then
 fi
 build_pkg autoconf "$autoconf_tarfile" "$autoconf_srcdir" build-aux
 build_pkg automake "$automake_tarfile" "$automake_srcdir" no
-build_pkg libtool  "$libtool_tarfile"  "$libtool_srcdir"  no
+build_pkg libtool  "$libtool_tarfile"  "$libtool_srcdir"  build-aux
 
 echo ; echo "resetting permissions ..."
 find "$prefix" -type d -exec chmod a+rx {} \;

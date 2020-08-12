@@ -26,7 +26,7 @@ with '-m4'.
 Current versions:
 
   autoconf  2.69
-  automake  1.15
+  automake  1.16.2
   libtool   2.4.6
   m4        1.4.17
 
